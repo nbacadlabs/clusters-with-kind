@@ -1,6 +1,6 @@
 # clusters-with-kind
 
-# CREATING CLUSTERS WITH USING KIND
+## CREATING CLUSTERS WITH USING KIND
 
 1. ### Setup using ubuntu 22.04LTS
 
