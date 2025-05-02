@@ -93,7 +93,7 @@ https://istio.io/latest/docs/tasks/security/cert-management/plugin-ca-cert/
         ```
 
     e. install the certificates <br>
-        [<kbd>Download it from: </kbd>](https://istio.io/latest/docs/tasks/security/cert-management/plugin-ca-cert/)
+        [<kbd>https://istio.io/latest/docs/tasks/security/cert-management/plugin-ca-cert/ </kbd>](https://istio.io/latest/docs/tasks/security/cert-management/plugin-ca-cert/)
 
 
 
