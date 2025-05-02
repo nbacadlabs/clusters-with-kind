@@ -104,7 +104,7 @@ e. install the certificates <br>
     ```
             make -f ../tools/certs/Makefile.selfsigned.mk root-ca
     ```
-> [!NOTE] 
+> [!NOTE] Sample output generated.
 > sample output generating root-key.pem <br> generating root-cert.csr <br> generating root-cert.pem <br> 
 > Certificat request self-signature ok <br> subject=O = Istio, CN = Root CA
 
