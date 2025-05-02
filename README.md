@@ -1,8 +1,10 @@
 # clusters-with-kind
 
+https://istio.io/latest/docs/tasks/security/cert-management/plugin-ca-cert/
+
 ### CREATING CLUSTERS WITH USING KIND
 
-1. ### Setup using ubuntu 22.04LTS
+1. #### Setup using ubuntu 22.04LTS
 
     - #### update packages and install certificates
     ```
@@ -44,25 +46,55 @@
         newgrp docker
     ```
 
-2. ### Install KIND
+2. #### Install KIND
     ```
         curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.22.0/kind-linux-amd64
         chmod +x ./kind
         sudo mv ./kind /usr/local/bin/kind
     ```
 
-3. ### Verify Installation
+3. #### Verify Installation
     ```
         kind version
     ```
 
-4. ### Create a KIND Cluster
+4. #### Create a KIND Cluster
     ```
         kind create cluster --name kind-cluster
     ```
 
-5. ### Check Cluster Status
+5. #### Check Cluster Status
     ```
         sudo apt update
         sudo apt install -y kubectl
     ```
+
+6. #### Installation of metallb
+    a. install metal mb
+        ```
+            kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.14.9/config/manifests/metallb-native.yaml
+        ```
+    
+    b.  Check the docker network
+        ```
+            docker network inspect -f '{{.IPAM.Config}}' kind
+        ```
+
+    c.  create namespaces
+      * create istio-system namespace on cluster1
+      * create istio-system namespace on cluster2
+    
+    d.  install the certificates.
+      * you will need to download istio directory from
+         https://istio.io/latest/docs/setup/getting-started/
+        
+        ```
+        curl -L https://istio.io/downloadIstio | sh -
+        ```
+
+    e. install the certificates
+        [<kbd>Download it from: </kbd>](https://istio.io/latest/docs/tasks/security/cert-management/plugin-ca-cert/)
+
+
+
+    
