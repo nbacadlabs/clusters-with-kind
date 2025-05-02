@@ -95,6 +95,26 @@ https://istio.io/latest/docs/tasks/security/cert-management/plugin-ca-cert/
     e. install the certificates <br>
         [<kbd>https://istio.io/latest/docs/tasks/security/cert-management/plugin-ca-cert/ </kbd>](https://istio.io/latest/docs/tasks/security/cert-management/plugin-ca-cert/)
 
+        - navigate to your istio root directory
+        - create a new directory and push the certs to it.
+            ```
+                mkdir -p certs
+                pushd certs
+            ```
+        - Generate root certificates and key.
+            ```
+                 make -f ../tools/certs/Makefile.selfsigned.mk root-ca
+            ```
+            >[!NOTE] 
+            > sample output
+            > ```generating root-key.pem
+            >    generating root-cert.csr
+            >    generating root-cert.pem
+            >    Certificate request self-signature ok
+            >    subject=O = Istio, CN = Root CA```
 
-
+        - Generate an intermediate certificate for each cluster
+            ```
+                make -f ../tools/certs/Makefile.selfsigned.mk cluster1-cacerts
+            ```
     
