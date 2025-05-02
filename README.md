@@ -106,15 +106,14 @@ https://istio.io/latest/docs/tasks/security/cert-management/plugin-ca-cert/
                  make -f ../tools/certs/Makefile.selfsigned.mk root-ca
             ```
             >[!NOTE] 
-            > sample output
-            > ```generating root-key.pem
-            >    generating root-cert.csr
-            >    generating root-cert.pem
-            >    Certificate request self-signature ok
-            >    subject=O = Istio, CN = Root CA```
+            > sample output ```generating root-key.pem
+                generating root-cert.csr
+                generating root-cert.pem
+                Certificate request self-signature ok
+                subject=O = Istio, CN = Root CA```
 
         - Generate an intermediate certificate for each cluster
             ```
-                make -f ../tools/certs/Makefile.selfsigned.mk cluster1-cacerts
+            make -f ../tools/certs/Makefile.selfsigned.mk cluster1-cacerts
             ```
     
