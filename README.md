@@ -92,7 +92,7 @@ https://istio.io/latest/docs/tasks/security/cert-management/plugin-ca-cert/
         curl -L https://istio.io/downloadIstio | sh -
         ```
 
-    e. install the certificates
+    e. install the certificates <br>
         [<kbd>Download it from: </kbd>](https://istio.io/latest/docs/tasks/security/cert-management/plugin-ca-cert/)
 
 
