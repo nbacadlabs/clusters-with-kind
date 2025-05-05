@@ -2,28 +2,28 @@ apiVersion: v1
 kind: Secret
 metadata:
   annotations:
-    networking.istio.io/cluster: cluster1
+    networking.istio.io/cluster: cluster2
   creationTimeStamp: null
   labels:
     istio/multiCluster: "true"
-  name: istio-remote-secret-cluster1
+  name: istio-remote-secret-cluster2
 stringData:
   cluster1: |
     apiversion: v1
       clusters:
       - cluster:
           certificate-authority-data:
-          server: https://cluster1-control-plane:6443
-        name: cluster1
+          server: https://cluster2-control-plane:6443
+        name: cluster2
       context:
       - context:
-          cluster: cluster1
-          user: cluster1
-        name: cluster1
-      current-context: cluster1
+          cluster: cluster2
+          user: cluster2
+        name: cluster2
+      current-context: cluster2
       kind: Config
       preferences: {}
       users:
-      - name: cluster1
+      - name: cluster2
         user:
           token: vbb

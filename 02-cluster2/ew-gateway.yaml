@@ -1,9 +1,9 @@
 labels:
   istio: eastwestgateway
   app: istio-eastwestgateway
-  topology.istio.io/network: network1
+  topology.istio.io/network: network2
 env:
-  ISTIO_META_REQUEST_NETWORK_VIEW: network1
+  ISTIO_META_REQUEST_NETWORK_VIEW: network2
 service:
   ports:
   - name: tls
