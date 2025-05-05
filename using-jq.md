@@ -79,5 +79,4 @@ d. Export to CSV
     [$app.displayName, $app.appId, .displayName, .endDateTime] |
     @csv
     ' apps.json > expired_secrets.csv
-
-    ```
+  ```
