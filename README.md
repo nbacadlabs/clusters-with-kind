@@ -105,12 +105,43 @@ e. install the certificates <br>
             make -f ../tools/certs/Makefile.selfsigned.mk root-ca
     ```
 > [!NOTE] 
-> <b>Sample output generated.</b>
+> <b>Sample output generated.</b><br>
 > sample output generating root-key.pem <br> generating root-cert.csr <br> generating root-cert.pem <br> 
 > Certificat request self-signature ok <br> subject=O = Istio, CN = Root CA
 
 - Generate an intermediate certificate for each cluster
     ```
     make -f ../tools/certs/Makefile.selfsigned.mk cluster1-cacerts
+    make -f ../tools/certs/Makefile.selfsigned.mk cluster2-cacerts
     ```
-    
+- In each cluster, create a secret cacerts including all the input files ca-cert.pem, ca-key.pem,
+  root-cert.pem and cert-chain.pem.    For example, for cluster1
+
+  ```
+    kubectl create namespace istio-system
+    kubectl create secret generic cacerts -n istio-system \
+      --from-file=cluster1/ca-cert.pem \
+      --from-file=cluster1/ca-key.pem \
+      --from-file=cluster1/root-cert.pem \
+      --from-file=cluster1/cert-chain.pem
+  ```
+- if using kind, use the command below
+    ```
+    kubectl create secret generic cacerts -n istio-system \
+      --from-file=cluster1/ca-cert.pem \
+      --from-file=cluster1/ca-key.pem \
+      --from-file=cluster1/root-cert.pem \
+      --from-file=cluster1/cert-chain.pem --context=kind-cluster1
+
+      kubectl create secret generic cacerts -n istio-system \
+      --from-file=cluster2/ca-cert.pem \
+      --from-file=cluster2/ca-key.pem \
+      --from-file=cluster2/root-cert.pem \
+      --from-file=cluster2/cert-chain.pem --context=kind-cluster2
+    ```
+- install istio ctl
+  ```
+    istioctl install -n istio-system --context=kind-cluster1
+
+    istioctl install -n istio-system --context=kind-cluster2
+  ```
