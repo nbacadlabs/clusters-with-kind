@@ -1,4 +1,16 @@
-### Using jq
+
+### Extracting the data from Microsoft Graph
+1. Sign-in to Microsoft graph https://developer.microsoft.com/en-us/graph/graph-explorer
+2. On the right pane, select ```GET``` ```Version``` ```API```
+   example query: ```https://graph.microsoft.com/v1.0/applications?$select=displayName,appId,passwordCredentials```
+3. click on ```Run query```
+4. at the bottom, click on ```Response preview```
+5. create a file called ```filename.json``` in your directory
+6. select all data on ```Response preview``` and paste it in the created json file
+7. delete the @odata* lines. 
+8. That completes the data preparation and sanitization.
+
+### Uing jq to extract data from json file and output it as .csv file.
 
 #### Sample json file
 
