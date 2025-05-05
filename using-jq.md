@@ -8,7 +8,7 @@
 5. create a file called ```filename.json``` in your directory
 6. select all data on ```Response preview``` and paste it in the created json file
 7. delete the @odata* lines. 
-8. That completes the data preparation and sanitization.
+8. That completes our data preparation and sanitization phase.
 
 ### Uing jq to extract data from json file and output it as .csv file.
 
